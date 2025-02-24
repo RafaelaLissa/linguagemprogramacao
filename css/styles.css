@@ -1,6 +1,6 @@
 body{
     font-family: Arial,sans-serif;
-    background-color:rgb(102, 0, 0);
+    background-color:rgb(126, 3, 3);
 /*usa modelo FlexBox, conceito de caixa para posicionamento*/            
     display: flex; 
     align-items: center; /* centraliza verticalmente */
@@ -32,4 +32,35 @@ button:hover{
     width: 200px; /*largura a imagem*/
     height: 200px;/*altura da imagem*/
     margin-bottom: 10px; /*espaçamento externo abaixo*/
+}
+.sidebar{
+    width: 200px;
+    height: 100vh;
+    background: #420707;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar ul li {
+    margin: 10px 0; /* 10px acima e abaixo e 0px á direita e esquerda */
+}
+.sidebar ul li a{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+.container{
+    flex-grow: 1; /* capacidade de um elemento crescer */
+    padding: 20px;
+    margin-left: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
