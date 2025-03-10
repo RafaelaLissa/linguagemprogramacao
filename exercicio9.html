@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Profile Card</title>
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/exercicio1.css">
         <script src="js/scripts.js"> </script>
         </style>
     </head>
@@ -28,10 +29,17 @@
         </div>
         <div class="container">
         <div class="card">
-            <img class="image" src="https://i.pinimg.com/736x/ea/6e/92/ea6e92cd77467ebede6dfd500a3166e8.jpg" alt="foto do peril"/>
-            <h2> Rafaela Lissa </h2>
-            <p> Análise e Desenvolvimento de Sistemas </p>
-            <button onclick="seguir()"> Seguir </button>
+            <h1> Exercicio 9 </h1>
+            <form>
+                <label> Digite a base maior do trapezio </label>
+                <input type="number" id="numero1"/>
+                <label> Digite a base menor do trapezio </label>
+                <input type="number" id="numero2"/>
+                <label> Digite a altura do trapezio</label>
+                <input type="number" id="numero3"/>
+                <button onclick="exe9()" type="button"> Calcular </button>
+                <label id="area"> A área é:  </label>
+            </form>
             </div>
         </div>
     </body>
