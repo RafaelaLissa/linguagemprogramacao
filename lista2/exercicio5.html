@@ -4,7 +4,7 @@
         <meta charset="UTF-8"/> <!--UTF-8 sistema de codificação do portuguêS-->
         <!-- a largura da pagina será a largura do dispositivo -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Profile Card</title>
+        <title>Execiocio 5</title>
         <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="css/exercicio1.css">
         <script src="js/scripts.js"> </script>
@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="sidebar">
-            <h2> Lista 1 de js </h2>
+            <h2> Lista 2 de js </h2>
             <ul> <!-- lista não ordenada-->
                 <li> <a href= "index.html"> Home </a> </li>
                 <li> <a href="exercicio1.html"> Exercicio 1 </a> </li>
@@ -31,11 +31,19 @@
         <div class="card">
             <h1> Exercicio 5 </h1>
             <form>
-                <label> Preço do Produto </label>
-                <input type="number" id="numero1"/>
+                <label> Numero 1 </label>
+                <input type="number" id="num1"/>
+                <label> Numero 2 </label>
+                <input type="number" id="num2"/>
+                <label> Escolha a sua opção </label>
+                <select id= "selecao">
+                    <option value="1"> Média dos números</option>
+                    <option value="2"> Diferença dos números</option>
+                    <option value="3"> Produto dos números</option>
+                    <option value="4"> Divisão dos números</option>
+                </select>
                 <button onclick="exe5()" type="button"> Calcular </button>
-                <label id="desconto"> O Novo Preço é: </label>
-                <label id="resultado"></label>
+                <label id="resultado"> </label>
             </form>
             </div>
         </div>
