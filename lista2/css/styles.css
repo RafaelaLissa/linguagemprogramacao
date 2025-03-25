@@ -1,6 +1,7 @@
 body{
+    /*fundo atras do card*/
     font-family: Arial,sans-serif;
-    background-color:rgb(126, 3, 3);
+    background-color:rgb(127, 6, 138);
 /*usa modelo FlexBox, conceito de caixa para posicionamento*/            
     display: flex; 
     align-items: center; /* centraliza verticalmente */
@@ -8,11 +9,15 @@ body{
     height: 100vh; /* define a altura da tela - 100% */
 }
 .card {
-    background-color: rgb(252, 195, 244);
+    /*card fundo*/
+    background-image:url(https://dbdzm869oupei.cloudfront.net/img/mantels/preview/39858.png);
+    background-color: rgb(128, 16, 143);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
+    text-shadow: 0px 0px 10px rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 button {
     background-color: blueviolet;
@@ -21,6 +26,8 @@ button {
     padding: 10px 15px; /* 10px é superior e inferior e 15px é esquerda e direita*/
     border-radius: 5px;/*borda*/
     cursor: pointer; /*ponteiro do mouse*/
+    box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 10px rgba(255, 145, 222, 0.5);
 
 }
 button:hover{
@@ -32,16 +39,19 @@ button:hover{
     width: 200px; /*largura a imagem*/
     height: 200px;/*altura da imagem*/
     margin-bottom: 10px; /*espaçamento externo abaixo*/
+    box-shadow: 2px 4px 5px rgb(0, 0, 0, 0.5);
 }
 .sidebar{
     width: 200px;
     height: 100vh;
-    background: #420707;
+    background: #54026d;
     color: white;
     padding: 20px;
     position: fixed;
     left: 0;
     top: 0;
+    box-shadow: 0px 1px 8px rgb(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 10px rgba(255, 145, 222, 0.5);
 }
 .sidebar ul {
     list-style: none;
@@ -51,9 +61,11 @@ button:hover{
     margin: 10px 0; /* 10px acima e abaixo e 0px á direita e esquerda */
 }
 .sidebar ul li a{
+    /*letras do sidebar*/
     color: white;
     text-decoration: none;
     cursor: pointer;
+    text-shadow: 1px 1px 10px rgba(255, 145, 222, 0.5);
     
 }
 .container{

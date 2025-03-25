@@ -90,6 +90,85 @@ function exe5(){
         else{
             document.getElementById("resultado").innerText = "Divisão por zero"
         }
+    }   
+}
+function exe6(){
+    let num1 = Number(document.getElementById("num1").value)
+    let num2 = Number(document.getElementById("num2").value)
+    let selecao = Number(document.getElementById("selecao").value)
+    //utilização do escolha
+    switch (selecao){
+        case 1:
+            // O primeiro número elevado ao segundo
+            document.getElementById("resultado").innerText = "a potencia é: " + Math.pow(num1, num2) //math função pronta para potencia
+            break
+        case 2:
+            // Raiz quadrada de ambos os números
+            document.getElementById("resultado").innerHTML = "raiz quadrada do primeiro é "+ Math.sqrt(num1).toFixed(2)+ 
+            "<br/> raiz quadrada do segundo é: " + Math.sqrt(num2).toFixed(2)
+            break
+        case 3:
+            // Raiz cúbica de ambos os números
+            document.getElementById("resultado").innerHTML = "a raiz cubica do primeiro é: " + Math.cbrt(num1).toFixed(2) + 
+            "<br/> raiz cubica doo segundo: " + Math.cbrt(num2).toFixed(2)
+            break
     }
-        
+}
+function exe7(){
+    let numero1 = Number(document.getElementById("numero1").value)
+
+    let aumento = numero1 * 0.30
+    let salariofinal = numero1 + aumento
+    if (numero1 < 500){
+        document.getElementById("resultado").innerText = "O salario modificado é: " + salariofinal
+    }
+    else{
+        document.getElementById("resultado").innerText = "Não tem direito á aumento."
+    }
+}
+function exe8(){
+    let numero1 = Number(document.getElementById("numero1").value)
+
+    if(numero1 <= 300){
+        aumento = 0.35
+    }
+    //vamos usar template string
+    else{
+        aumento = 0.15
+    }
+    let salariofinal = numero1 + (numero1 * aumento);
+    document.getElementById("resultado").innerHTML = `O salario final é ${salariofinal}`//fazer assim daqui pra frente
+}
+function exe9(){
+    let numero1 = Number(document.getElementById("numero1").value)
+    let credito
+
+    if(numero1 > 400){
+         credito = (numero1 * 0.30)
+    }
+    else if(numero1 > 300 && numero1 <=400){
+         credito =(numero1 * 0.25)
+    }
+    else if (numero1 > 200 && numero1 <= 300){
+        credito = (numero1 * 0.20)
+    }
+    else if (numero1 <= 200){
+        credito = (numero1 * 0.10)
+    }
+    document.getElementById("resultado").innerHTML ="o salario medio é: " + numero1 + 
+    "<br/> valor credito disponivel: " +  credito
+}
+function exe10(){
+    let numero1 = Number(document.getElementById("numero1").value)
+
+    if (numero1 <= 12000){
+        consumidor = numero1 + (numero1 * 0.5)
+    }
+    else if (numero1 > 12000 && numero1 <= 25000){
+        consumidor = numero1 + (numero1 * 0.10) + (numero1 * 0.15)
+    }
+    else if (numero1 > 25000){
+        consumidor = numero1 + (numero1 * 0.15) + (numero1 * 0.20)
+    }
+    document.getElementById("resultado").innerHTML = "preço ao consumidor: R$" + consumidor
 }
