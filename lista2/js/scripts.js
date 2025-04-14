@@ -155,8 +155,12 @@ function exe9(){
     else if (numero1 <= 200){
         credito = (numero1 * 0.10)
     }
-    document.getElementById("resultado").innerHTML ="o salario medio é: " + numero1 + 
-    "<br/> valor credito disponivel: " +  credito
+    else{//saldo negativo
+        document.getElementById("credito").innerHTML = "saldo não pode ser negativo"
+        return //saiu da função
+    }
+    document.getElementById("resultado").innerHTML =`o salario medio é:  ${numero1}` + 
+    `<br/> valor credito disponivel:  ${credito}`
 }
 function exe10(){
     let numero1 = Number(document.getElementById("numero1").value)
@@ -170,5 +174,14 @@ function exe10(){
     else if (numero1 > 25000){
         consumidor = numero1 + (numero1 * 0.15) + (numero1 * 0.20)
     }
-    document.getElementById("resultado").innerHTML = "preço ao consumidor: R$" + consumidor
+    else{
+        document.getElementById("consumidor").innerHTML = "custo negativo"
+    }
+    document.getElementById("resultado").innerHTML = `preço ao consumidor: R$  ${consumidor}`
+}
+function exe22(){
+    
+}
+function exe24(){
+    
 }
