@@ -45,30 +45,41 @@ function exe2(){
     alert(`Numeros multiplos de 3: ${mult3.length}`)
 }
 function exe3(){
-    // cadastra código e qtde em estoque
-    let codigos = [], estoque = [] //declara os vetores
+    // cadastra codigo e qtde em estoque
+    let vetor=[]
     for(let i = 0;i < 3; i++){
-        codigos.push(prompt(`Informe o código do produto`))
-        estoque.push(Number(prompt(`Informe a qtde em estoque`)))
+        //cria objeto
+        let objeto = {
+            codigos: prompt(`Informe o código do produto`),
+            estoque: Number(prompt(`Informe a qtde em estoque`)),
+            preco: Number(prompt(`Informe o preco do produto`))
+        }
+        //adiciona objeto no vetor
+        vetor.push(objeto)
     }
     //comprando ...
     let cliente = Number(prompt(`Informe código do cliente`))
     do{
-        let codigo = prompt(`Informe código do produto para compra`)
+        let codigos = prompt(`Informe código do produto para compra`)
         let qtde = Number(prompt(`Informe a qtde do produto para compra`))
         //procurar para ver se produto existe
         //posso fazer o for para procura ou usar uma função
-        let posicao = codigos.indexOf(codigo)
-        //indexOf procurar 
-         //a função indexOf é para retornar a posição do vetor e se não existe retorna -1
-         if(posicao == -1){//produto não existe
-            alert(`Codigo Inexistente`)
+        let produtoEncontrado
+        let i
+        for(i=0;i<3;i++){
+            if(vetor[i].codigos == codigos){//produto encontrado
+                produtoEncontrado = vetor[i]// guarda produto em produtoEncontrado
+                break//para de procurar, significa sair do for
+            }
+        }
+         if(i == 3){//produto não existe
+            alert(`Codigo ${codigo} Inexistente`)
          }
          else{// produto existe
             //tem em estoque suficiente
-            if(estoque[posicao] >= qtde){
+            if(produtoEncontrado.estoque >= qtde){
                 //atualizar o estoque
-                estoque[posicao] = estoque[posicao] - qtde
+                produtoEncontrado.estoque =- qtde
                 alert(`Pedido atendido. Obrigado e volte sempre`)
             }
             else{
@@ -78,7 +89,8 @@ function exe3(){
          cliente = Number(prompt(`Informe código do novo cliente. Digite 0 para encerrar`))   
     }// fecha o do
     while(cliente != 0)
-    alert(`${codigos} ${estoque}`)
+    console.log(vetor)
+    //alert(`${codigos} ${estoque}`)
 }
 function exe4(){
     //declaração do vetor
@@ -121,40 +133,47 @@ function exe5(){
 }
 function exe6(){
     //declarar vetores
-    let nome = [], vendas = [], percentual = [], comissao = []
+    let vetor = []
     //entrada de dados
     for(let i=0;i<3;i++){
-        nome.push(prompt(`Informe o nome do ${i+1}° vendedor`))
-        vendas.push(Number(prompt(`Informe total vendido pelo ${i+1}° vendedor `)))
-        percentual.push(Number(prompt(`Informe o percentual de vendas do ${i+1}° vendedor`)))
-        //calcula comissão
-        comissao.push((vendas[i] * percentual[i]) / 100)
+        //cria objeto
+        let objeto ={
+            nome:prompt(`Informe o nome do ${i+1}° vendedor`),
+            vendas:Number(prompt(`Informe total vendido pelo ${i+1}° vendedor `)),
+            percentual:Number(prompt(`Informe o percentual de vendas do ${i+1}° vendedor`)),
+        }
+        //calcula comissão - vamos utilizar o . para acessar o campo/atributo do objeto
+        //posso usar obj no lugar do objeto
+        objeto.comissao = (objeto.vendas * objeto.percentual) / 100
+        //adiciona objeto ao vetor
+        vetor.push(objeto)
     }
     //relação dos vendedores e os valores a receber
-    let relatorio = ''
+    let relatorio = ''  
     for(let i=0;i<3;i++){
-        relatorio += `\nVendedor: ${nome[i]} vai receber ${comissao[i]}`
+        relatorio += `\nVendedor: ${vetor[i].nome} vai receber ${vetor[i].comissao}`
     }
     alert(relatorio)
     //total de vendas de todos os vendedores
     let somaVendas = 0
     for(let i=0;i<3;i++){
-        somaVendas = somaVendas + vendas[i]
+        somaVendas = somaVendas + vetor[i].vendas
     }
     alert(`Total de vendas ${somaVendas.toFixed(2)}`)
     //calcula o maior e o menor valor da comissão
-    let maior = comissao[0]//primeiro é maior
-    let menor = comissao[0]//primeiro é o menor
-    for(let i=0;i<3;i++){
-        if(comissao[i] > maior){
-            maior = comissao[i]
+    let objMaior = vetor[0]//primeiro funcionario é maior
+    let objMenor = vetor[0]//primeiro funcionario é o menor
+    let i
+    for( i=0;i<3;i++){
+        if(vetor[i].comissao > objMaior.comissao){
+            objMaior = vetor[i]
         }
-        if(comissao[i] < menor){
-            menor = comissao[i]
+        if(vetor[i].comissao < objMenor.comissao){
+            objMenor = vetor[i]
         }
     }
-    alert(`${nome[comissao.indexOf(maior)]} vai receber maior comissão de ${maior}`)
-    alert(`${nome[comissao.indexOf(menor)]} vai receber menor comissão de ${menor}`)
+     alert(`${objMaior,nome} vai receber maior comissão de ${objMaior.comissao}`)
+     alert(`${objMenor.nome} vai receber menor comissão de ${objMenor.comissao}`)
 }
 function exe7(){
     //declarar vetores
@@ -200,28 +219,32 @@ function exe8(){
     }
 }
 function exe9(){
-    let nome = [], codigo = [], preco = []
-    for(let i=0;i<10;i++){
-        nome.push(prompt(`Informe o nome do produto ${i+1}`))
-        codigo.push(Number(prompt(`Informe o código do produto ${i+1}`)))
-        preco.push(Number(prompt(`Informe o preço do produto ${i+1}`)))
+    let vetor = []
+    for(let i=0;i<3;i++){
+        let objeto = {
+            nome: prompt(`Informe o nome do produto ${i+1}`),
+            codigo: Number(prompt(`Informe o código do produto ${i+1}`)),
+            preco: Number(prompt(`Informe o preço do produto ${i+1}`)),
+            novo: 0
+        }
+        vetor.push(objeto)
     }
     //gerar relatório com os novos preços
-    for(let i=0;i<10;i++){
-        let novo
-        if(codigo[i] % 2 ==0 && preco > 1000){
-            novo = (preco[i] * 1.20)
+    let i
+    for(i=0;i<3;i++){
+        if(vetor[i].codigo % 2 ==0 && vetor[i].preco > 1000){
+            vetor[i].novo = vetor[i].preco + vetor[i].preco * 20/100
         }
-        else if(codigo[i] % 2 == 0){
-            novo = (preco[i] * 1.15)
+        else if(vetor[i].codigo % 2 == 0){
+            vetor[i].novo = vetor[i].preco + vetor[i].preco * 15/100
         }
-        else if(preco[i] > 1000){
-            novo = (preco[i] * 1.10)
+        else if(vetor[i].preco > 1000){
+            vetor[i].novo = vetor[i].preco + vetor[i].preco * 10/100
         }
         else{
-            novo = preco[i]
+            vetor[i].novo = vetor[i].preco
         }
-        alert(`${nome[i]} - ${codigo[i]} - ${preco[i]} - ${novo}`)
+        alert(`${vetor[i].nome} - ${vetor[i].codigo} - ${vetor[i].preco} - ${vetor[i].novo}`)
     }
 }
 function exe10(){
@@ -261,5 +284,4 @@ function exe10(){
     }
     alert(`Vetor resultante 2 ${vetorr2}`)
 }
-
    
